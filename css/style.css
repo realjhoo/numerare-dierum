@@ -40,7 +40,7 @@ button {
   padding: 0.8rem 2.5rem;
   font-size: 1rem;
   cursor: pointer;
-  transition: all 0.3s ease;
+  transition: background 0.3s ease;
   outline: none;
 }
 

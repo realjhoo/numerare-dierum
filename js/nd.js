@@ -94,14 +94,21 @@ function sliceJD(ND) {
 // --------------------------------------------------------
 function showNumerareDierum(triennium, melia, centum, thebeats) {
   let today = new Date();
-  let newDate = today.toISOString().slice(0, 10);
+  //let newDate = today.toISOString().slice(0, 10); // shows current gregorian date bigendian with dash separators
 
   const output = document.querySelector(".output");
   output.innerHTML = `Today, is the <span class="green">${centum}${getOrdinalIndicator(
     centum
   )} day of ${
     meliaName[melia]
-  } in Triennium ${triennium}.</span></p> <p>More concisely, <span class="green">${triennium}-${melia}-${centum}</span>.</p> <p>The time, in beats, may be appended: <span class="green">${triennium} ${melia} ${centum} ${thebeats}</span></p> `;
+  } in Triennium ${triennium}.</span></p> <p>Or, <span class="green">${
+    meliaName[melia]
+  } ${centum}, ${triennium}</span>.</p> 
+  <p>Or, even: <span class="green">${triennium}.${melia}.${centum}</span>.</p> 
+  <p>The time, in beats, may be appended: <span class="green">${triennium} ${melia} ${centum} ${thebeats}</span></p>
+  <p>Or, <span class="green">${centum} ${
+    meliaName[melia]
+  } ${triennium} ${thebeats}</span></p> `;
 }
 
 // --------------------------------------------------------
@@ -154,6 +161,7 @@ function main() {
 
 // --------------------------------------------------------
 main();
+setInterval(main, 1000);
 /* 
 TODO: 
 x Place lose code in functions... I hate lose code!!!
@@ -161,7 +169,7 @@ x How to do ordinal identifiers?
 x Output the results to the web page
 Make page pretty for gods' sake sorta... ???
 x Rewrite blurb so it doesnt want to show current Numerare Dierum multiple times
-Run the current and updating time at the top
+x Run the current and updating time at the top
 x Adapt the code to the bitbar beats :-)
 Deploy this page to saxondate.com using the menu bar there
 Rewrite the menu bar on saxon-date-web. Dev Ed?
