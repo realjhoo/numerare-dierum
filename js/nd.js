@@ -97,8 +97,11 @@ function showNumerareDierum(triennium, melia, centum, thebeats) {
   let newDate = today.toISOString().slice(0, 10);
 
   const output = document.querySelector(".output");
-  // <span class="red">${newDate}</span>,
-  output.innerHTML = `Today, is the ${centum}th day of ${meliaName[melia]} in Triennium ${triennium}.</p> <p>More concisely, ${triennium}-${melia}-${centum}.</p> <p>The time, in beats, may be appended, thusly ${triennium}-${melia}-${centum}${thebeats}</p> `;
+  output.innerHTML = `Today, is the <span class="green">${centum}${getOrdinalIndicator(
+    centum
+  )} day of ${
+    meliaName[melia]
+  } in Triennium ${triennium}.</span></p> <p>More concisely, <span class="green">${triennium}-${melia}-${centum}</span>.</p> <p>The time, in beats, may be appended: <span class="green">${triennium} ${melia} ${centum} ${thebeats}</span></p> `;
 }
 
 // --------------------------------------------------------
@@ -116,6 +119,27 @@ function toggleit() {
 }
 
 // --------------------------------------------------------
+function getOrdinalIndicator(number) {
+  // adds st, nd, rd or th to number
+  let rightmostDigit = number.toString().slice(-1);
+  let ordinalIndicator = "";
+
+  if (number >= 11 && number <= 13) {
+    ordinalIndicator = "th";
+  } else if (rightmostDigit < 1 || rightmostDigit >= 4) {
+    ordinalIndicator = "th";
+  } else if (parseInt(rightmostDigit) === 1) {
+    ordinalIndicator = "st";
+  } else if (parseInt(rightmostDigit) === 2) {
+    ordinalIndicator = "nd";
+  } else if (parseInt(rightmostDigit) === 3) {
+    ordinalIndicator = "rd";
+  }
+
+  return ordinalIndicator;
+}
+
+// --------------------------------------------------------
 function main() {
   let ND = getJulianDay();
   let thebeats = getBeats();
@@ -123,9 +147,9 @@ function main() {
 
   showNumerareDierum(triennium, melia, centum, thebeats);
 
-  console.log(triennium, meliaName[melia], centum);
-  console.log(triennium, meliaName[melia], centum + " " + thebeats);
-  console.log(ND);
+  // console.log(triennium, meliaName[melia], centum);
+  // console.log(triennium, meliaName[melia], centum + " " + thebeats);
+  // console.log(ND);
 }
 
 // --------------------------------------------------------
@@ -133,12 +157,12 @@ main();
 /* 
 TODO: 
 x Place lose code in functions... I hate lose code!!!
-How to do ordinal identifiers?
+x How to do ordinal identifiers?
 x Output the results to the web page
-Make page pretty for gods' sake sorta...
+Make page pretty for gods' sake sorta... ???
 x Rewrite blurb so it doesnt want to show current Numerare Dierum multiple times
 Run the current and updating time at the top
 x Adapt the code to the bitbar beats :-)
 Deploy this page to saxondate.com using the menu bar there
-Rewrite the menu bar there. Dev Ed?
+Rewrite the menu bar on saxon-date-web. Dev Ed?
 */
