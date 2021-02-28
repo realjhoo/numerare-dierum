@@ -1,3 +1,24 @@
+#!/usr/bin/env /usr/local/bin/node
+// shebang for bitbar - comment out line 1 for web deploy
+
+/*
+Numerare Dieum and Beats
+J L Hoover
+Version 1.0 2021.02.27 
+72 Duomelia 2459
+(16 Sol 2271)
+*/
+
+// Bitbar Metadata
+// bitbar.title - Numerare Dieum
+// bitbar.version - Version 1.0
+// bitbar.author - Jerry L Hoover
+// bitbar.author.github - realjhoo
+// bitbar.desc - Julian Date and Beat Time
+// bitbar.image - working...
+// bitbar.dependencies - working...
+// bitbar.abouturl - URL to about
+
 const meliaName = [
   "Nullamelia",
   "Unumelia",
@@ -92,40 +113,6 @@ function sliceJD(ND) {
 }
 
 // --------------------------------------------------------
-function showNumerareDierum(triennium, melia, centum, thebeats) {
-  let today = new Date();
-  //let newDate = today.toISOString().slice(0, 10); // shows current gregorian date bigendian with dash separators
-
-  const output = document.querySelector(".output");
-  output.innerHTML = `Today, is the <span class="green">${centum}${getOrdinalIndicator(
-    centum
-  )} day of ${
-    meliaName[melia]
-  } in Triennium ${triennium}.</span></p> <p>Or, <span class="green">${
-    meliaName[melia]
-  } ${centum}, ${triennium}</span>.</p> 
-  <p>Or, even: <span class="green">${triennium}.${melia}.${centum}</span>.</p> 
-  <p>The time, in beats, may be appended: <span class="green">${triennium} ${melia} ${centum} ${thebeats}</span></p>
-  <p>Or, <span class="green">${centum} ${
-    meliaName[melia]
-  } ${triennium} ${thebeats}</span></p> `;
-}
-
-// --------------------------------------------------------
-function toggleit() {
-  let toggleButton = document.getElementById("toggle-button");
-  let explainer = document.querySelector(".explainer");
-
-  if (toggleButton.innerHTML === "Show More") {
-    toggleButton.innerHTML = "Show Less";
-    explainer.style.display = "block";
-  } else {
-    toggleButton.innerHTML = "Show More";
-    explainer.style.display = "none";
-  }
-}
-
-// --------------------------------------------------------
 function getOrdinalIndicator(number) {
   // adds st, nd, rd or th to number
   let rightmostDigit = number.toString().slice(-1);
@@ -152,25 +139,9 @@ function main() {
   let thebeats = getBeats();
   let [triennium, melia, centum] = sliceJD(ND);
 
-  showNumerareDierum(triennium, melia, centum, thebeats);
-
-  // console.log(triennium, meliaName[melia], centum);
-  // console.log(triennium, meliaName[melia], centum + " " + thebeats);
-  // console.log(ND);
+  // log out for bitbar display
+  console.log(triennium, meliaName[melia], centum + " " + thebeats);
 }
 
 // --------------------------------------------------------
 main();
-setInterval(main, 1000);
-/* 
-TODO: 
-x Place lose code in functions... I hate lose code!!!
-x How to do ordinal identifiers?
-x Output the results to the web page
-Make page pretty for gods' sake sorta... ???
-x Rewrite blurb so it doesnt want to show current Numerare Dierum multiple times
-x Run the current and updating time at the top
-x Adapt the code to the bitbar beats :-)
-Deploy this page to saxondate.com using the menu bar there
-Rewrite the menu bar on saxon-date-web. Dev Ed?
-*/

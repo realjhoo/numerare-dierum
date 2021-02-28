@@ -1,26 +1,62 @@
 # numerare-dierum
-As you may have realized, I am interested in measuring time and this is what fueled my interest in Beat Time, which is essentially a form of decimal time such that the day is arbitrarily divided into 1,000 units, called beats. More about this can be read here. If the measurement of time can be reformed in this way, then it stands to reason that dates could also be decimalized, giving us a system completely devoid of connections to Earth's natural cycles, a system of reckoning dates that will work across the future galactic empire.
 
-Beat time is universal and only coincidentally coincides with terrestrial time. Measuring time with 'beats' results in the accumulation of days. This accumulation of days I will term "Ad Numerare Dierum" (ND), literally, "the count of days". The ND includes the fractional part of the day in Beat Time after the "@" sign. Luckily, this concept already existed in the form of the Julian Day, which is simply the count of days, starting with 0, since 1 January 4713 BCE.
+## What is This?
 
-Using this standard, the current (when I wrote this on 24 February 2021) Julian Day is 2459270, which, as I indicated, represents the count of days since 4713 BCE. In order to make this number more "user friendly" and format it into chunks that we can remember, I divided the ND into Trienniums, Melias and Centums (yes, there is a Latin theme developing here). Each Triennium represents the span of about 2.7 solar years. The current Triennium, represented by the leftmost 4 digits of the Julian Day, is 2459.
+As you may have realized, I am interested in measuring time. For example, my Saxon Date project looks to recreate the lunar calendar of our ancient ancestors. Well... my ancient ancestors, anyway.
 
-Melias represent groups of 100 days. There are, naturally, 10 of these groups. Each Melia is named so that they can be used much like months, although they are more than three times longer. The Melias are:
+That calendar measures time in a way that is intimately tied to the tides and seasons, to solstice and moon phase. It was how our people, and, in fact, people everywhere told time before watches, clocks and computers. But, also wanted to explore the opposite. A way of measuring time that is completely disconnected from the natural world. A way of telling time that would be the same, anywhere... everywhere... unlike the current Gregorian calendar, one that is a universal method, independent of the sun or the relative position of the earth in relation to its orbit.
 
-Nullamelia
-Unumelia
-Duomelia
-Triamelia
-Quattarmelia
-Quinquemelia
-Sexmelia
-Septmelia
-Octomelia
-Novemelia
-So, on 2459270, it is Duomelia, and it will remain so for another 29 days.
+To that end, I have fitted together the Julian Date and Swatch Internet Beats in a way that measures time logically and consistently. And in a way that is completely devoid of where the earth is in its orbit or on its axis at any given moment.
 
-The two rightmost digits represent the "Centum". The Centum on 2459270 is 70. The day after Centum 99 is Centum 00, and the Centum increments at @000 beats.
+## Beats
 
-The illogical and mismatched groupings of time that once tracked the seasons is fine for local use, and for its original purpose, tracking seasons, religious feasts, holy days and holidays, but it will never make sense for time on Mars or Proxima Centauri , or two people on opposite sides of our planet trying to schedule a Zoom meeting, to track the time with 12 months, each consisting of a random number of days making up a year that 365.25 days long with each day further broken down into two sets of twelve, each subdivided into 60ths, which are themselves divided into 60ths again.
+Beat Time is essentially a form of decimal time such that the day is arbitrarily divided into 1,000 units, called beats. The Beat Time (or Internet Time or Swatch Time) is the same, no matter where you are in the world. It isnt tied to a specific place. When its @500 in your town, it is @500 in France, Kenya, the dark side of the moon, Antarctica, Olympus Mons on Mars, and in orbit around Proxima Centauri.
 
-Nothing will ever come of it. But its fun to think about. Nad, if I ever write a fictional story of a fictional empire in an alternate time;line, they will tell time in two ways. Each culture will have its own traditional calendar, driven by seasons and natural rhythms. And, the larger group will have a way of dealing with time between cultures. Like Esperanto... but for time. But more like Toki Pona.
+## Julian Date
+
+Meanwhile, scientists who were weary of having to convert dates in various eras across time, came up with the idea of counting all that days that have elapsed since some point in the past. Looking at the various methods at their disposal, they noted that the solar cycle, the lunar cycle and the ancient Roman tax calendar (to which many dates in European history has been pinned) all coincided at one point: 1 January 4713 BCE. A point in time that was sufficiently early that it preceded all recorded history.
+
+That count of days, starting with 0 on -4713.01.01, is known as the Julian Date, or JD. The JD on the day I originally created this calendar was 2459270.
+
+## Ad Numerare Dierum
+
+Combining these two concepts seems obvious. Every 1000 beats is a day. Every day increments the Julian Date. Combining the two results in something like, 2459270@134.52. A unique number that identifies a particular day and time in human history. I named it Ad Numerare Dierum, literally, "the count of days."
+
+### Chunking
+
+In teaching, difficult concepts are "chunked." That is, they are broken down into simpler concepts that can be combined into more complex ones. It helps students learn and makes it easier to remember things. 2459270 is a pretty long number to remember. So, I decided to break it down into chunks that resemble the pieces of a date that we are already familiar with... years, months and days.
+
+### Latinisms
+
+Since 2459270 represents the count of days from 1 January 4713 BCE to 24 February 2021 CE, let's format this in a way similar to the Gregorian date that we are used to. We can start by using the 4 digits to the left as a sort of year. 2459. Each one of those will take approximately 2.7 years. So, I named these Triennium. Literally "3 years" in Latin.
+
+Using the fifth digit, we can break each Triennium into 10 parts I choose to call "Melia", which is a Latin(ish) for 1,000. Each Melia is 100 days, and there are 10 of them. I named the melia so that they would be easier to remember and we could write them in the format we are accustomed to. Each of the names mean, "one thousand", "two thousand", "three thousand", etc:
+
+- Nullamelia
+- Unumelia
+- Duomelia
+- Triamelia
+- Quattarmelia
+- Quinquemelia
+- Sexmelia
+- Septmelia
+- Octomelia
+- Novemelia
+
+The remaining two digits will act as the date. And again, since each melia has 100 days, 0 - 99, I named these "Centum".
+
+The day that I created the first Numerare Dierum was JD 2459270. Formatting this in Numerare Dierum yields 70 Duomelia 2459. This date can be written, much like the Gregorian date, in a variety of arrangements.
+Duomelia 70, 2459
+2-70-2459
+2459.2.70
+You get the idea.
+
+## Bitbar Notes
+
+This node implementation of Numerare Dierum is intended to display in the menu bar of a Mac using BitBar or SwiftBar.
+
+Place the file nd.js in the BitBar modules folder. Rename the file `nd.1s.js` which allows the BitBar to refresh the data once each second. Run `chmod +x nd.js` to change the permissions on the file so Bitbar can run it.
+
+**Note:** It may be necessary to comment out (or in) certain lines. I left comments in the code to indicate that.
+
+This readme.md was updated on the 73rd day of Duomelia 2459.
