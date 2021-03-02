@@ -146,7 +146,7 @@ function main() {
   let [triennium, melia, centum] = sliceJD(ND);
 
   // log out for bitbar display
-  console.log(triennium, meliaName[melia], centum + " " + thebeats);
+  console.log(centum, meliaName[melia], triennium + " " + thebeats);
 }
 
 // --------------------------------------------------------
